@@ -1,13 +1,11 @@
-import { kv } from '@vercel/kv';
 import Censored from '@/components/Censored'
+import HitCounter from '@/components/HitCounter'
 
 export default async function Page() {
-    const user: any = await kv.get('user:me');
-
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <Censored>
-                <p className="text-2xl">The user is {user.name}</p>
+                <span>Number of hits is <HitCounter /></span>
             </Censored>
         </main>
     )
