@@ -1,14 +1,14 @@
 import { kv } from '@vercel/kv';
-import ClientButton from '@/components/ClientButton'
+import Censored from '@/components/Censored'
 
 export default async function Page() {
     const user: any = await kv.get('user:me');
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <h1>About {user.name}</h1>
-
-            <ClientButton user={user} />
+            <Censored>
+                <p className="text-2xl">The user is {user.name}</p>
+            </Censored>
         </main>
     )
 }
